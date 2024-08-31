@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet,TouchableOpacity,Image } from 'react-native';
+import { View, Text, Button, StyleSheet,TouchableOpacity,Image, ScrollView } from 'react-native';
 
 // Definir el array de imágenes
     const images = [
@@ -20,7 +20,8 @@ import { View, Text, Button, StyleSheet,TouchableOpacity,Image } from 'react-nat
 
 export default function HomeScreen({ navigation }) {
   return (
-    <View style={styles.container}>
+    <ScrollView>
+        <View style={styles.container}>
       <View style={styles.header}>
           <Text style={styles.bannerTitle}>Bienvenido a Reciclaje Eco</Text>
           <Text style={styles.bannerText}>Ayudamos a cuidar el medio ambiente a través del reciclaje. ¡Únete a nosotros!</Text>
@@ -43,6 +44,7 @@ export default function HomeScreen({ navigation }) {
      
             </View>
         </View>
+    </ScrollView>
   );
 }
 

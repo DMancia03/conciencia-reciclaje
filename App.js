@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "./src/screens/HomeScreen";
 import DetailsScreen from "./src/screens/DetailsScreen";
+import { ScrollView } from "react-native";
 
 //const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();

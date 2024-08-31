@@ -9,7 +9,8 @@ const StepsScreen = ({ steps, navigation }) => {
       setCurrentStep(currentStep + 1);
     } else {
       // Si estamos en el último paso, podemos navegar a otra pantalla o reiniciar los pasos
-      navigation.navigate('Inicio'); // Esto es solo un ejemplo, puedes cambiarlo según tu flujo de la aplicación
+      //navigation.navigate('Inicio'); // Esto es solo un ejemplo, puedes cambiarlo según tu flujo de la aplicación
+      setCurrentStep(0);
     }
   };
 

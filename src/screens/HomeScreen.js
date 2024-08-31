@@ -32,9 +32,9 @@ export default function HomeScreen({ navigation }) {
       </View>
 
 
-    <View style={styles.featured}>
+        <View style={styles.featured}>
                 <Text style={styles.featuredTitle}>Destacado</Text>
-   {images.map(image => (
+    {images.map(image => (
                     <TouchableOpacity key={image.id} style={styles.featuredItem}>
                         <Image source={{uri: image.source}} style={styles.featuredImage} />
                         <Text style={styles.featuredItemTitle}>{image.description}</Text>

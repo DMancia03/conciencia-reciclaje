@@ -1,8 +1,12 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StatusBar } from "expo-status-bar";
 import StepsScreen from "./src/screens/StepsScreen";
+import HomeScreen from './src/screens/HomeScreen';
+import DetailsScreen from './src/screens/DetailsScreen';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const App = () => {
   const steps = [
@@ -12,16 +16,44 @@ const App = () => {
     { step: 4, description: 'Coloca los materiales reciclables en los contenedores correspondientes.' },
   ];
 
+  const Tab = createBottomTabNavigator();
   const Stack = createStackNavigator();
+  const primaryColor = '#97da85';
+  const secondColor = '#3b7c2e';
 
   return (
   <NavigationContainer>
-    <Stack.Navigator>
+    <Tab.Navigator 
+      screenOptions={{
+        tabBarActiveBackgroundColor: secondColor,
+        tabBarActiveTintColor: primaryColor,
+        tabBarInactiveBackgroundColor: primaryColor,
+        tabBarInactiveTintColor: secondColor,
+      }}>
+      <Tab.Screen 
+        name="inicio" 
+        component={HomeScreen}
+        options={{
+          title: 'Inicio',
+          tabBarIcon: ({ color }) => <Icon  name="home" color={color} size={26} />,
+        }} />
+      <Tab.Screen 
+        name="proyectos" 
+        component={DetailsScreen}
+        options={{
+          title: 'Proyectos',
+          tabBarIcon: ({ color }) => <Icon  name="book" color={color} size={26} />,
+          
+        }} />
+    </Tab.Navigator>
+    {/**
+     * <Stack.Navigator>
       <Stack.Screen name="Pasos de Reciclaje">
         {(props) => <StepsScreen {...props} steps={steps} />}
       </Stack.Screen>
     </Stack.Navigator>
-    <StatusBar backgroundColor="#3b7c2e" translucent />
+     */}
+    <StatusBar backgroundColor={secondColor} translucent />
   </NavigationContainer>
   );
 };

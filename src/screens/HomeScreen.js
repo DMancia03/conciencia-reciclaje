@@ -26,8 +26,8 @@ export default function HomeScreen({ navigation }) {
           <Text style={styles.bannerTitle}>Bienvenido a Reciclaje Eco</Text>
           <Text style={styles.bannerText}>Ayudamos a cuidar el medio ambiente a través del reciclaje. ¡Únete a nosotros!</Text>
         <Button
-        title="Ir a Detalles"
-        onPress={() => navigation.navigate('Details')}
+        title="Ver nuestros proyectos"
+        onPress={() => navigation.navigate('proyectos')}
       />
       </View>
 

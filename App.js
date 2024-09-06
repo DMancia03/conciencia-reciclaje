@@ -6,7 +6,8 @@ import { StatusBar } from "expo-status-bar";
 import StepsScreen from "./src/screens/StepsScreen";
 import HomeScreen from './src/screens/HomeScreen';
 import DetailsScreen from './src/screens/DetailsScreen';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import StatisticsScreen from "./src/screens/StatisticsScreen";
 
 const App = () => {
   const steps = [
@@ -57,6 +58,21 @@ const App = () => {
           tabBarIcon: ({ color }) => <Icon  name="book" color={color} size={26} />,
           
         }} />
+        <Tab.Screen 
+          name="estadisticas"
+          component={StatisticsScreen}
+          options={{
+            title: 'Estadísticas',
+            headerStyle: {
+              backgroundColor: secondColor,
+            },
+            headerTitleStyle: {
+              color: primaryColor,
+            },
+            tabBarIcon: ({ color }) => <Icon  name="chart-bar" color={color} size={26} />,
+            
+          }}
+        />
     </Tab.Navigator>
     {/**
      * <Stack.Navigator>

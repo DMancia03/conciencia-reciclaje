@@ -35,6 +35,12 @@ const App = () => {
         component={HomeScreen}
         options={{
           title: 'Inicio',
+          headerStyle: {
+            backgroundColor: secondColor,
+          },
+          headerTitleStyle: {
+            color: primaryColor,
+          },
           tabBarIcon: ({ color }) => <Icon  name="home" color={color} size={26} />,
         }} />
       <Tab.Screen 
@@ -42,6 +48,12 @@ const App = () => {
         component={DetailsScreen}
         options={{
           title: 'Proyectos',
+          headerStyle: {
+            backgroundColor: secondColor,
+          },
+          headerTitleStyle: {
+            color: primaryColor,
+          },
           tabBarIcon: ({ color }) => <Icon  name="book" color={color} size={26} />,
           
         }} />

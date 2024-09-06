@@ -1,6 +1,7 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { StatusBar } from "expo-status-bar";
 import StepsScreen from "./src/screens/StepsScreen";
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
         {(props) => <StepsScreen {...props} steps={steps} />}
       </Stack.Screen>
     </Stack.Navigator>
+    <StatusBar backgroundColor="#3b7c2e" translucent />
   </NavigationContainer>
   );
 };

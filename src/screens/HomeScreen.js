@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet,TouchableOpacity,Image, ScrollView } from 'react-native';
+import { View, Text, Button, StyleSheet,TouchableOpacity,Image, ScrollView, Pressable } from 'react-native';
 
 // Definir el array de imágenes
     const images = [
@@ -17,6 +17,9 @@ import { View, Text, Button, StyleSheet,TouchableOpacity,Image, ScrollView } fro
         },
       ];
 
+      const primaryColor = '#97da85';
+      const secondColor = '#3b7c2e';
+
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -25,10 +28,14 @@ export default function HomeScreen({ navigation }) {
       <View style={styles.header}>
           <Text style={styles.bannerTitle}>Bienvenido a Reciclaje Eco</Text>
           <Text style={styles.bannerText}>Ayudamos a cuidar el medio ambiente a través del reciclaje. ¡Únete a nosotros!</Text>
-        <Button
+        <Pressable
+        
+        style={styles.bannerButton}
         title="Ver nuestros proyectos"
         onPress={() => navigation.navigate('proyectos')}
-      />
+      >
+        <Text style={styles.bannerButtonText}>Ver nuestros proyectos</Text>
+      </Pressable>
       </View>
 
 
@@ -58,7 +65,7 @@ const styles = StyleSheet.create({
       },
     header: {
         padding: 20,
-        backgroundColor: '#CEFF25', // Verde para el encabezado
+        backgroundColor: primaryColor, // Verde para el encabezado
     },
 
     bannerTitle: {
@@ -71,9 +78,14 @@ const styles = StyleSheet.create({
          color: '#000000', // Texto blanco
     },
     bannerButton:{
-      backgroundColor: '#ffff00', // Verde para el encabezado
+      backgroundColor: secondColor, // Verde para el encabezado
       fontSize: 16,
       color: '#000000', // Texto blanco
+      padding:10
+    },
+    bannerButtonText:{
+      fontSize: 16,
+      color: 'white',
     },
     featured: {
         padding: 20,

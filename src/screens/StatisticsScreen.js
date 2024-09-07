@@ -1,12 +1,42 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Dimensions, StyleSheet } from "react-native";
 import { GLView } from "expo-gl";
+import { BarChart } from "react-native-chart-kit";
 
 const StatisticsScreen = ({navigation}) => {
+  const screenWidth = Dimensions.get("window").width - 40;
+
+  const data = {
+    labels: ["Proyecto 1", "Proyecto 2", "Proyecto 3"],
+    datasets: [
+      {
+        data: [20, 45, 28]
+      }
+    ]
+  };
+
+  const chartConfig = {
+    backgroundGradientFrom: "#1E2923",
+    backgroundGradientFromOpacity: 0,
+    backgroundGradientTo: "#08130D",
+    backgroundGradientToOpacity: 0.5,
+    color: (opacity = 1) => 'blue',
+    strokeWidth: 2, // optional, default 3
+    barPercentage: 0.5,
+    useShadowColorFromDataset: false // optional
+  };
+
     return (
-        <View>
-            <Text>Statistics Screen</Text>
-            <GLView style={{ width: 300, height: 300 }} onContextCreate={onContextCreate} />
+        <View style={styles.container}>
+            <Text style={styles.title}>Apoyo recibido en los proyectos</Text>
+            <BarChart
+  data={data}
+  width={screenWidth}
+  height={300}
+  yAxisLabel=""
+  chartConfig={chartConfig}
+  verticalLabelRotation={30}
+/>
         </View>
     );
 }
@@ -53,5 +83,18 @@ function onContextCreate(gl) {
     gl.flush();
     gl.endFrameEXP();
   }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    backgroundColor: '#fff',
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+});
 
 export default StatisticsScreen;
